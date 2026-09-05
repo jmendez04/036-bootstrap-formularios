@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}Confirmación de proveedor{% endblock %}
+
+{% block contenido %}
+<h1 class="h3">Datos del proveedor</h1>
+
+<div class="alert alert-success">
+    Datos recibidos. No se han guardado.
+</div>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Empresa:</strong> {{ empresa }}</li>
+    <li class="list-group-item"><strong>Contacto:</strong> {{ contacto }}</li>
+    <li class="list-group-item"><strong>NIT:</strong> {{ nit }}</li>
+    <li class="list-group-item"><strong>Tipo:</strong> {{ tipo }}</li>
+    <li class="list-group-item"><strong>Condición de pago:</strong> {{ condicion }}</li>
+    <li class="list-group-item"><strong>Proveedor activo:</strong> {{ activo }}</li>
+</ul>
+
+<a href="/proveedores" class="btn btn-success">Volver al formulario</a>
+{% endblock %}

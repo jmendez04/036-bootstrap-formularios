@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block titulo %}Proveedores{% endblock %}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-body">
+        <h1 class="h3">Registro de proveedores</h1>
+
+        <form action="/proveedores" method="POST">
+            <div class="mb-3">
+                <label for="empresa" class="form-label">Empresa</label>
+                <input type="text" class="form-control"
+                       id="empresa" name="empresa" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="contacto" class="form-label">Contacto</label>
+                <input type="text" class="form-control"
+                       id="contacto" name="contacto" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nit" class="form-label">NIT</label>
+                <input type="text" class="form-control"
+                       id="nit" name="nit" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="tipo" class="form-label">
+                    Tipo de producto o servicio
+                </label>
+                <select class="form-select" id="tipo" name="tipo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Papelería">Papelería</option>
+                    <option value="Tecnología">Tecnología</option>
+                    <option value="Limpieza">Limpieza</option>
+                    <option value="Transporte">Transporte</option>
+                </select>
+            </div>
+
+            <fieldset class="mb-3">
+                <legend class="fs-6">Condición de pago</legend>
+
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           id="contado" name="condicion"
+                           value="Contado" checked>
+                    <label for="contado" class="form-check-label">
+                        Contado
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" class="form-check-input"
+                           id="credito" name="condicion" value="Crédito">
+                    <label for="credito" class="form-check-label">
+                        Crédito
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input"
+                       id="activo" name="activo">
+                <label for="activo" class="form-check-label">
+                    Proveedor activo
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-success">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
