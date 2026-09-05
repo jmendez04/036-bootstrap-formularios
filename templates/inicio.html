@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<h1>Formularios de Negocio</h1>
+<p>Selecciona una opción para ingresar información.</p>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5">Clientes</h2>
+                <p>Registro de datos de clientes.</p>
+                <a href="/clientes" class="btn btn-success">Registrar cliente</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5">Proveedores</h2>
+                <p>Registro de datos de proveedores.</p>
+                <a href="/proveedores" class="btn btn-success">Registrar proveedor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h5">Inicio de sesión</h2>
+                <p>Acceso con usuario y contraseña.</p>
+                <a href="/login" class="btn btn-success">Iniciar sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
