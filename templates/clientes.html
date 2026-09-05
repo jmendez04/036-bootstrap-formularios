@@ -7,7 +7,7 @@
     <div class="card-body">
         <h1 class="h3">Registro de clientes</h1>
 
-        <form action="/clientes" method="POST">
+        <form action="/clientes" method="POST" id="formularioClientes">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control"
@@ -42,4 +42,56 @@
         </form>
     </div>
 </div>
+
+<div class="modal fade" id="confirmacion" tabindex="-1"
+     aria-labelledby="tituloConfirmacion" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="tituloConfirmacion">
+                    Confirmar envío
+                </h2>
+                <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body">
+                ¿Deseas enviar los datos del cliente?
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+                <button type="button" class="btn btn-success"
+                        id="confirmarEnvio">
+                    Confirmar envío
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const formulario = document.getElementById("formularioClientes");
+    const ventana = new bootstrap.Modal(
+        document.getElementById("confirmacion")
+    );
+    let confirmado = false;
+
+    formulario.addEventListener("submit", function(evento) {
+        if (!confirmado) {
+            evento.preventDefault();
+            ventana.show();
+        }
+    });
+
+    document.getElementById("confirmarEnvio").addEventListener("click", function() {
+        confirmado = true;
+        formulario.requestSubmit();
+    });
+</script>
 {% endblock %}
