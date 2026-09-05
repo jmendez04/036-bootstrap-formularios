@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}Confirmación de cliente{% endblock %}
+
+{% block contenido %}
+<h1 class="h3">Datos del cliente</h1>
+
+<div class="alert alert-success">
+    Datos recibidos correctamente. No se guardan en una base de datos ni en archivos.
+</div>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Nombre:</strong> {{ nombre }}</li>
+    <li class="list-group-item"><strong>NIT:</strong> {{ nit }}</li>
+    <li class="list-group-item"><strong>Correo:</strong> {{ correo }}</li>
+    <li class="list-group-item"><strong>Teléfono:</strong> {{ telefono }}</li>
+    <li class="list-group-item"><strong>Dirección:</strong> {{ direccion }}</li>
+</ul>
+
+<a href="/clientes" class="btn btn-success">Volver al formulario</a>
+{% endblock %}
