@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+USUARIOS = {"admin": "1234"}
+
 
 @app.route("/")
 def inicio():
@@ -50,6 +52,22 @@ def proveedores():
         )
 
     return render_template("proveedores.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def iniciar_sesion():
+    if request.method == "POST":
+        usuario = request.form["usuario"]
+        contrasena = request.form["contrasena"]
+        acceso = USUARIOS.get(usuario) == contrasena
+
+        return render_template(
+            "login_resultado.html",
+            usuario=usuario,
+            acceso=acceso
+        )
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
